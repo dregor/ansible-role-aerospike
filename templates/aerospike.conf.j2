@@ -91,9 +91,11 @@ namespace {{ namespace.name }} {
         high-water-memory-pct {{ namespace.high_water_memory_pct | default(60) }}
         high-water-disk-pct {{ namespace.high_water_disk_pct | default(50) }}
         default-ttl {{ namespace.storage_ttl | default(4) }}d # 30 days, use 0 to never expire/evict.
+        transaction-pending-limit {{ namespace.transaction_pending_limit | default(20) }}
 
     {% if namespace.storage_engine is defined %}
         storage-engine device {
+        read-page-cache {{ namespace.storage_engine.read_page_cache | default(false) }} 
         {% if namespace.storage_engine.devices is defined %}
             {% for device in namespace.storage_engine.devices %}
                 device {{ device }}
