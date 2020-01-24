@@ -57,6 +57,16 @@
     - start aerospike
   when: ansible_os_family == 'Debian'
 
+
+- name: Place Aerospike configuration file.
+  copy:
+    src: aerospike.autorestart.conf
+    dest: /etc/systemd/system/aerospike.service.d/aerospike.autorestart.conf
+    owner: root
+    group: root
+  notify:
+    - start aerospike
+
 - name: Place Aerospike configuration file.
   template:
     src: aerospike.conf.j2
