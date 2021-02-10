@@ -70,6 +70,8 @@ network {
                 {% endif %}
                 {% if aerospike_fabric_address is defined %}
                 address {{ aerospike_fabric_address }}
+                {% else %}
+                address any
                 {% endif %}
                 port 3001
         }
@@ -77,6 +79,8 @@ network {
         info {
                 {% if aerospike_info_address is defined %}
                 address {{ aerospike_info_address }}
+                {% else %}
+                address any
                 {% endif %}
                 port 3003
         }
@@ -90,7 +94,8 @@ namespace {{ namespace.name }} {
     {% endif  %}
         high-water-memory-pct {{ namespace.high_water_memory_pct | default(60) }}
         high-water-disk-pct {{ namespace.high_water_disk_pct | default(50) }}
-        default-ttl {{ namespace.storage_ttl | default(4) }}d # 30 days, use 0 to never expire/evict.
+        nsup-period {{ namespace.nsup_period  | default(4) }}h
+        default-ttl {{ namespace.storage_ttl | default(4) }}d 
         transaction-pending-limit {{ namespace.transaction_pending_limit | default(20) }}
 
     {% if namespace.storage_engine is defined %}
