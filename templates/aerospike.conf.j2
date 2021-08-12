@@ -39,6 +39,11 @@ network {
     {% if aerospike_access_address is defined %}
                 access-address {{ aerospike_access_address }}
     {% endif %}
+    {% if aerospike_alternate_access_address is defined %}
+                alternate-access-address {{ aerospike_alternate_access_address }}
+    {% endif %}
+
+
                 port 3000
         }
 
