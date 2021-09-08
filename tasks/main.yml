@@ -34,6 +34,7 @@
   yum:
     name: "{{ item.path }}"
     state: present
+    disable_gpg_check: yes
   with_items:
     - "{{ aerospike_rpms.files }}"
   notify:

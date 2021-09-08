@@ -1,0 +1,3 @@
+---
+aerospike_distro_download: el8
+aerospike_config_destination: /etc/aerospike/aerospike.conf
