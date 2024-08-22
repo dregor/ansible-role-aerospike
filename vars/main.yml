@@ -1,5 +1,5 @@
 ---
 aerospike_download_url:
-  https://www.aerospike.com/download/server/{{ aerospike_version }}/artifact/{{ aerospike_distro_download }}
+  https://download.aerospike.com/artifacts/aerospike-server-enterprise/{{ aerospike_major_version }}/aerospike-server-enterprise_{{ aerospike_full_version }}_tools-{{ aerospike_tools_version }}_el9_x86_64.tgz
 aerospike_package_name:
-  aerospike-server-community-{{ aerospike_version }}-{{ aerospike_distro_download }}
+  aerospike-server-enterprise_{{ aerospike_full_version }}_tools-{{ aerospike_tools_version }}_{{ aerospike_distro_download }}_x86_64
